@@ -1,0 +1,117 @@
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  /* Set background to transparent so the video shows */
+  background: transparent;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Background video */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Centered container for initial content */
+#container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+}
+
+/* Buttons styling */
+button {
+  font-size: 18px;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f48fb1;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* "Yes" button: allow it to grow and overlap the "No" button */
+button#yes-btn {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+/* Celebration section (hidden initially) */
+#celebration {
+  display: none;
+  margin-top: 20px;
+}
+
+/* Cat popup images (for No clicks) – square style */
+#cat-popup img {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 0;
+  border: 2px solid white;
+  display: inline-block;
+}
+
+/* GIF container for celebration (cat GIFs) */
+#gif-container img {
+  width: 200px;
+  margin: 10px;
+  display: inline-block;
+}
+
+/* Falling hearts container and style */
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: pink;
+  clip-path: polygon(50% 0%, 100% 40%, 80% 100%, 50% 80%, 20% 100%, 0% 40%);
+  animation: fall 6s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100%) scale(0.5);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(50vh) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+}
